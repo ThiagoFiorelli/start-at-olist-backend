@@ -4,8 +4,6 @@ from .views import BillViewSet, CallRecordViewSet
 
 
 router = routers.DefaultRouter()
-# router.register(r'callstartrecord', CallStartRecordViewSet, basename="CallStartRecords")
-# router.register(r'callendrecord', CallEndRecordViewSet, basename="CallEndRecords")
 router.register(r'callrecord', CallRecordViewSet, basename="CallRecord")
 router.register(r'bill', BillViewSet, basename="bill")
 
