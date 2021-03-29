@@ -8,6 +8,7 @@ authors = ["Thiago Fiorelli <36682785+ThiagoFiorelli@users.noreply.github.com>"]
 python = "^3.9"
 Django = "^3.1.7"
 djangorestframework = "^3.12.2"
+pytest = "^6.2.2"
 
 [tool.poetry.dev-dependencies]
 
