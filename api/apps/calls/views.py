@@ -22,11 +22,12 @@ class BillViewSet(viewsets.ModelViewSet):
         data = request.data
         source = data.get("source")
         period = data.get("period")
+        total_price = 00.00
         bill = {
             "source": source,
             "period": period,
             "call_record": [],
-            "total_price": 00.00,
+            "total_price": f"R${total_price}",
         }
 
         if not source:
@@ -61,10 +62,11 @@ class BillViewSet(viewsets.ModelViewSet):
                 "call_start_date": start_date,
                 "call_start_time": start_time,
                 "duration": str(duration),
-                "price": price,
+                "price": f"R${price}",
             }
 
-            bill["total_price"] += price
+            total_price += price
+            bill["total_price"] = f"R${total_price}"
             bill["call_record"].append(call_record)
 
         return Response(data=bill, status=status.HTTP_200_OK)
