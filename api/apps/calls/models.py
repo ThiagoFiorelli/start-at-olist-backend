@@ -6,4 +6,4 @@ class CallRecord(models.Model):
     source = models.CharField(max_length=16)
     destination = models.CharField(max_length=16)
     start_date = models.DateTimeField()
-    end_date = models.DateTimeField()  
+    end_date = models.DateTimeField()
