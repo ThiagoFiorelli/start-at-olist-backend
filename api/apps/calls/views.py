@@ -55,7 +55,8 @@ class BillViewSet(viewsets.ModelViewSet):
             start_date = call.start_date.date().strftime("%d/%b/%Y")
             start_time = call.start_date.time()
             duration = call.end_date - call.start_date
-            price = self.get_call_record_price(call.start_date, call.end_date, duration)
+            price = self.get_call_record_price(
+                call.start_date, call.end_date, duration)
 
             call_record = {
                 "destination": destination,
@@ -103,18 +104,18 @@ class BillViewSet(viewsets.ModelViewSet):
                     date.min, call_end.time()
                 ) - datetime.combine(date.min, time_limit_start)
 
-        total_minute_charge = int(charge.total_seconds() / 60)
+        total_minute_charge = int(charge.total_seconds()/60)
 
         if duration.days > 0:
             charge_per_day = datetime.combine(
                 date.min, time_limit_end
             ) - datetime.combine(date.min, time_limit_start)
             total_minute_charge += (
-                int(charge_per_day.total_seconds() / 60) * duration.days
+                int(charge_per_day.total_seconds()/60) * duration.days
             )
 
         total_charge = round(
-            total_minute_charge * CALL_MINUTE_CHARGE + CALL_STANDING_CHARGE, 2
+            total_minute_charge*CALL_MINUTE_CHARGE + CALL_STANDING_CHARGE, 2
         )
 
         return total_charge
