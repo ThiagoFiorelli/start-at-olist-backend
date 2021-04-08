@@ -50,7 +50,7 @@ Sample data:
 * call_id: 77, started at 2018-02-28T21:57:13Z and ended at 2018-03-01T22:10:56Z.
 
 
-Make a post request to your server (http://localhost:8000/bill/) with the following content template to get the bill detail.
+Make a post request to your server (http://localhost:8000/bill/) with the following payload template to get the bill detail.
 ```
 {
     "source": "99988526423",
